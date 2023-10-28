@@ -7,9 +7,10 @@ services:
       dockerfile: .devops/main.Dockerfile
     container_name: llama-cpp
     ports:
-      - 2600:2600
+      - 8080:8080
     tty: true
     # command: -m models/llama-2-13b-chat.ggmlv3.q2_K.bin -ngl 30 --port 2600 --host 0.0.0.0
-    command: -m models/codellama-7b-instruct.Q3_K_L.gguf -ngl 30 --port 2600 --host 0.0.0.0
+    # command: -m models/codellama-7b-instruct.Q3_K_L.gguf -ngl 30 --port 8080 --host 0.0.0.0
+    command: -c 4096 --host 0.0.0.0 -t 16 --mlock -m  models/codellama-7b-instruct.Q3_K_L.gguf
     volumes:
       - ./models:/models
