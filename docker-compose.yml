@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  llama-cpp:
+    build:  
+      context: .
+      dockerfile: .devops/main.Dockerfile
+    container_name: llama-cpp
+    ports:
+      - 2600:2600
+    tty: true
+    # command: -m models/llama-2-13b-chat.ggmlv3.q2_K.bin -ngl 30 --port 2600 --host 0.0.0.0
+    command: -m models/codellama-7b.ggmlv3.Q3_K_L.bin -ngl 30 --port 2600 --host 0.0.0.0
+    volumes:
+      - ./models:/models
