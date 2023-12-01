@@ -11,6 +11,8 @@ services:
     tty: true
     # command: -m models/llama-2-13b-chat.ggmlv3.q2_K.bin -ngl 30 --port 2600 --host 0.0.0.0
     # command: -m models/codellama-7b-instruct.Q3_K_L.gguf -ngl 30 --port 8080 --host 0.0.0.0
-    command: -c 4096 --host 0.0.0.0 -t 16 --mlock -m  models/codellama-7b-instruct.Q3_K_L.gguf
+    # command: -c 4096 --host 0.0.0.0 -t 16 --mlock -m  models/codellama-7b-instruct.Q3_K_L.gguf
+    command: -c 4096 --host 0.0.0.0 -t 16 --mlock -m  models/codellama-34b-instruct.Q8_0.gguf
+    
     volumes:
       - ./models:/models
